@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta content="" name="description">
+		<meta content="" name="keywords">
+		<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="0" http-equiv="expires">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<link href="css/webiaoqing.css" rel="stylesheet" type="text/css">
+		<script src="js/jquery_min.js" ></script>
+		<script src="js/webiaoqin.js" ></script>
+	</head>
+<body>
+	<article id="form_article" contenteditable="true" onkeydown="myInput.listen(this, event);"></article>
+
+	
+	
+		<div class="page_emotion box_swipe" id="page_emotion">
+			<dl id="list_emotion" class="list_emotion pt_10"></dl><!-- 表情框 -->
+			<dt><ol id="nav_emotion" class="nav_emotion"></ol></dt><!-- 分页提示点 -->
+		</div>
+<script>
+	$(function(){
+		var say = '说点什么...';
+		if ($("#form_article").html() === "") {
+			$("#form_article").html(say);
+		}
+		$("#form_article").click(function(){
+            if($("#form_article").html() == say){
+               	$("#form_article").html("");
+            }
+	    });
+	    $("#page_emotion  dd").click(function(){
+            $("#form_article").html( $("#form_article").html().replace(say, '') );
+	    });
+	});
+</script>
+</body>
+</html>
